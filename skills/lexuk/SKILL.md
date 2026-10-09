@@ -1,6 +1,7 @@
 ---
 name: lexuk
 description: Compliance guidance for e-commerce, online platforms and data protection in the United Kingdom, including the UK-EU interface (selling into the EU, Northern Ireland, data transfers), with mandatory verification of the version in force on official sources. ALWAYS use this skill when a message starts with /lexuk. Also use it whenever the user asks, in any language, about a UK online shop, marketplace, SaaS, dropshipping, services sold online, cancellation, refunds, statutory rights, terms, privacy notice, cookies, PECR, UK GDPR, ICO, CMA, DMCC Act, fake reviews, drip pricing, subscriptions, Trading Standards, Online Safety Act, Ofcom, product safety, UKCA, VAT, HMRC, imports, Windsor Framework, FCA, BNPL, NIS, PSTI, AI, ASA, CAP Code, or what legal obligations an online business has in the UK, even without saying legal or compliance. Triggers include Ltd, sole trader, Companies House, Scotland, Northern Ireland, Brexit.
+license: Apache-2.0 with Commons Clause (no selling). Complete terms in LICENSE.txt
 ---
 
 # E-commerce and data protection compliance (United Kingdom + UK-EU interface)

@@ -164,11 +164,13 @@ Example requests:
 ```
 LexUK/
 ├── README.md                 # this file
+├── LICENSE                   # Apache 2.0 with Commons Clause
 ├── install.sh                # one-command installer for Claude Code (macOS / Linux)
 ├── install.ps1               # one-command installer for Claude Code (Windows)
 ├── skills/
 │   └── lexuk/                # the skill
 │       ├── SKILL.md          # workflow, core rules, /lexuk trigger
+│       ├── LICENSE.txt       # copy of LICENSE, shipped with the skill
 │       └── references/       # intake, domain files (incl. UK-EU interface), sources, escalation, formats
 ├── dist/
 │   └── lexuk.skill           # ready-to-upload package for the Claude app (ZIP)
@@ -189,3 +191,15 @@ After editing files in `skills/lexuk/`, rebuild the package:
 - `skills/lexuk/references/acts-registry.md` is a **starting map compiled by an AI model, not verified act by act**. Each entry has a confidence level (H / M / ID?) and an extent. A few fast-moving items (DMCC subscriptions, DUAA commencement, EU adequacy renewal, BNPL regulation, Cyber Security and Resilience Bill, PRaM Act) were spot-checked against secondary sources in October 2026. The skill re-verifies acts live, but correcting the registry improves results.
 - The URLs of official sources are base addresses; verify them once.
 - The skill can be wrong. UK law in this area is mid-reform (DMCC Act, DUAA, product safety, cyber), and EU law keeps moving in parallel.
+
+## License
+
+LexUK is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) with the [Commons Clause](https://commonsclause.com/) condition. See [`LICENSE`](LICENSE).
+
+In plain terms:
+
+- **You can** use LexUK for free, including inside your own business (for example, to check your own shop's compliance), modify it and share it.
+- **You cannot** sell it: you may not charge for LexUK itself, a modified version of it, or a product or service (including hosting, consulting or support) whose value comes entirely or substantially from LexUK.
+- When you share it, keep the `LICENSE` file and the copyright notice.
+
+This summary is for convenience only; the `LICENSE` file is the binding text. For uses not covered, contact the author.

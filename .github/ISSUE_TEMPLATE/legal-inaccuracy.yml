@@ -1,0 +1,78 @@
+name: Legal inaccuracy
+description: Report an act, provision, date, threshold or rule that LexUK gets wrong or that is out of date.
+title: "[Legal] "
+labels: ["legal accuracy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep LexUK accurate. Please point to an **official source** (legislation.gov.uk, UK Parliament Bills, GOV.UK, HMRC, ICO, CMA, Ofcom, FCA, OPSS, ASA, Find Case Law, EUR-Lex). Secondary sources (law firm articles, blogs) are welcome as context, but a correction needs the official text.
+
+        Do not include personal data or confidential details about your business.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Act or provision cited incorrectly (wrong number, section or name)
+        - Act revoked, repealed or replaced
+        - Not yet commenced, or commencement date wrong
+        - Amended, and the skill uses the old wording
+        - Wrong extent (England and Wales / Scotland / Northern Ireland)
+        - EU rule applied to Great Britain, or the reverse
+        - Wrong threshold, deadline, rate or amount
+        - Guidance or regulator practice misdescribed
+        - Missing obligation or act
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where does it appear?
+      description: File and section, for example `skills/lexuk/references/domain-consumer.md`, "Cancellation". If you saw it in an answer, say which question you asked.
+      placeholder: skills/lexuk/references/acts-registry.md, Consumer law table
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What LexUK says now
+      description: Quote or summarise the current text or answer.
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct
+      description: The correct position, with section or regulation number and, where relevant, the commencement or amendment date.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official source(s)
+      description: Links to the official text. For legislation.gov.uk, say whether the page shows outstanding "changes to legislation".
+      placeholder: https://www.legislation.gov.uk/...
+    validations:
+      required: true
+  - type: dropdown
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction affected
+      multiple: true
+      options:
+        - England and Wales
+        - Scotland
+        - Northern Ireland
+        - Whole UK
+        - EU (UK-EU interface)
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked the official source on the date of this report.
+          required: true
+        - label: This report contains no personal data or confidential business details.
+          required: true

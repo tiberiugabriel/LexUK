@@ -1,0 +1,38 @@
+name: Coverage request
+description: Suggest a topic, business model, act or regulator guidance that LexUK should cover or cover better.
+title: "[Coverage] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the situation in general terms. Do not include personal data or confidential details about your business.
+  - type: textarea
+    id: topic
+    attributes:
+      label: What should LexUK cover?
+      description: The topic, act, sector or business model, and why it matters for online businesses in the UK.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example question
+      description: A question you would ask LexUK about it.
+      placeholder: I sell refurbished phones to consumers in Scotland. What do I need to tell buyers about the battery?
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources (if known)
+      description: Links to legislation.gov.uk, GOV.UK, regulator guidance or EUR-Lex.
+  - type: dropdown
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction
+      multiple: true
+      options:
+        - England and Wales
+        - Scotland
+        - Northern Ireland
+        - Whole UK
+        - EU (UK-EU interface)

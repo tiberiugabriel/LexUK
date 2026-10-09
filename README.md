@@ -1,5 +1,11 @@
 # LexUK
 
+[![Version](https://img.shields.io/badge/version-1.0.0-2563eb)](CHANGELOG.md)
+[![Updated](https://img.shields.io/badge/updated-2026--10--09-2563eb)](CHANGELOG.md)
+[![License: Apache 2.0 + Commons Clause](https://img.shields.io/badge/license-Apache%202.0%20%2B%20Commons%20Clause-blue)](LICENSE)
+[![Claude skill](https://img.shields.io/badge/Claude-skill-D97757?logo=claude&logoColor=white)](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+[![Jurisdiction: UK and UK-EU](https://img.shields.io/badge/jurisdiction-UK%20%2B%20UK--EU-012169)](#what-it-covers)
+
 LexUK is a Claude skill for **e-commerce, online platform and data protection compliance in the United Kingdom**, including the **UK-EU interface** (selling into the EU, Northern Ireland under the Windsor Framework, UK-EU data flows, post-Brexit divergence). It works like a team of specialists (solicitor, tax adviser, DPO, security, e-commerce compliance, customs and product compliance): it figures out your role, asks the questions you didn't think to ask, and **verifies on official sources that the law it relies on is in force and commenced** before answering.
 
 > ⚠️ **LexUK provides informational guidance, not legal, tax or accounting advice.** It does not replace a solicitor, tax adviser, chartered accountant or DPO. Always confirm important decisions with a qualified professional.
@@ -29,6 +35,41 @@ It is the UK companion of [LexRO](https://github.com/tiberiugabriel/LexRO) (Roma
 
 It always **answers in the language you write in** (English, Romanian or other languages).
 
+## Example
+
+> I run a small online shop in England selling engraved jewellery. A customer wants to send back a necklace engraved with her daughter's name, 10 days after delivery. There is nothing wrong with it. Do I have to accept the return?
+
+```
+Probably not. The 14-day right to cancel does not apply to goods made to the
+consumer's specifications or clearly personalised, and a name engraved at the
+customer's request usually falls in that category. This only covers a change
+of mind: if the necklace is faulty or not as described, the customer's
+statutory rights still apply.
+
+Level: YELLOW
+Covers: whole UK (your shop: England and Wales)
+
+Based on:
+- Consumer Contracts (Information, Cancellation and Additional Charges)
+  Regulations 2013, reg. 28(1)(b). VERIFIED_IN_FORCE
+  https://www.legislation.gov.uk/uksi/2013/3134/regulation/28
+  Up to date on legislation.gov.uk. The pending changes it lists (DMCC Act
+  2024, s. 279) insert regs. 7(4A) and 27(3A), not reg. 28(1)(b).
+- Consumer Rights Act 2015, ss. 9-11 (quality, fitness, description) and
+  s. 22 (30-day short-term right to reject faulty goods). VERIFIED_IN_FORCE
+  https://www.legislation.gov.uk/ukpga/2015/15/section/22
+
+Depends on:
+- Did the customer choose the engraving, or is it a standard design you sell
+  to everyone? A standard design is not "personalised" and the 14 days apply.
+- Did you tell the customer before the order that this item cannot be
+  cancelled? That information is part of your pre-contract duties.
+- Do your terms or website promise a more generous returns policy? If so,
+  that promise binds you.
+```
+
+*Abridged and illustrative. In a real session LexUK first confirms your role and jurisdiction, opens each act on the official source during the conversation and shows the version it relied on. Answers depend on the date and the facts you give.*
+
 ## Requirements
 
 - A Claude account with **skills** support (claude.ai web/desktop app, or Claude Code).
@@ -39,7 +80,7 @@ It always **answers in the language you write in** (English, Romanian or other l
 
 **Quick install for Claude Code:** `npx skills add tiberiugabriel/LexUK -g -a claude-code` or `curl -fsSL https://raw.githubusercontent.com/tiberiugabriel/LexUK/main/install.sh | bash`. Details below.
 
-The ready-to-upload package is **`dist/lexuk.skill`** (a ZIP archive containing the `lexuk/` folder).
+The ready-to-upload package is **`dist/lexuk.skill`** (a ZIP archive containing the `lexuk/` folder). Each version is also attached to its [GitHub release](https://github.com/tiberiugabriel/LexUK/releases/latest), with the changes listed in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### Option A: Claude app (claude.ai web or desktop)
 
@@ -164,7 +205,10 @@ Example requests:
 ```
 LexUK/
 ├── README.md                 # this file
+├── CHANGELOG.md              # changes per version
+├── CONTRIBUTING.md           # how to report errors and contribute
 ├── LICENSE                   # Apache 2.0 with Commons Clause
+├── .github/                  # issue and pull request templates
 ├── install.sh                # one-command installer for Claude Code (macOS / Linux)
 ├── install.ps1               # one-command installer for Claude Code (Windows)
 ├── skills/
@@ -175,15 +219,22 @@ LexUK/
 ├── dist/
 │   └── lexuk.skill           # ready-to-upload package for the Claude app (ZIP)
 └── scripts/
-    └── package.sh            # rebuilds dist/lexuk.skill
+    ├── package.sh            # rebuilds dist/lexuk.skill
+    └── ci.sh                 # local CI: runs every repository check
 ```
 
-## Rebuilding the package
+## Contributing
 
-After editing files in `skills/lexuk/`, rebuild the package:
+Found an act that is wrong, revoked or not yet commenced? Please [report a legal inaccuracy](https://github.com/tiberiugabriel/LexUK/issues/new?template=legal-inaccuracy.yml) with a link to the official source. To suggest new coverage or report a bug, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+After editing files in `skills/lexuk/`, rebuild the package and run the local CI:
 
 ```bash
 ./scripts/package.sh
+```
+
+```bash
+./scripts/ci.sh
 ```
 
 ## Limitations

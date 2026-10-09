@@ -1,0 +1,52 @@
+name: Bug report
+description: Installation, packaging or skill behaviour problems (the skill does not load, ignores the workflow, wrong format).
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For wrong or outdated law, use the **Legal inaccuracy** template instead.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where do you use LexUK?
+      options:
+        - Claude app (claude.ai web or desktop)
+        - Claude Code
+        - Claude API
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: LexUK version
+      description: The `version` under `metadata` at the top of `SKILL.md`, or the release you downloaded.
+      placeholder: 1.0.0
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it?
+      options:
+        - Uploaded dist/lexuk.skill
+        - npx skills add
+        - install.sh
+        - install.ps1
+        - Manual copy or symbolic link
+        - Other
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Steps, the exact error message, and what you expected instead. Remove personal data from any conversation excerpt.
+    validations:
+      required: true
+  - type: dropdown
+    id: web
+    attributes:
+      label: Is web search / web fetch enabled?
+      options:
+        - "Yes"
+        - "No"
+        - Not sure
